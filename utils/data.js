@@ -1,0 +1,55 @@
+const data = {
+  products: [
+    {
+      name: "Slim Shirt",
+      slug: "slim-shit",
+      category: "Shits",
+      image: "/images/shirt1.jpg",
+      price: 700,
+      brand: "Nike",
+      rating: 4.5,
+      numReviews: 9,
+      countInStock: 20,
+      description: "A popular shirt",
+    },
+    {
+      name: "Free Shirt",
+      slug: "free-shit",
+      category: "Shits",
+      image: "/images/shirt2.jpg",
+      price: 700,
+      brand: "Nike",
+      rating: 4.5,
+      numReviews: 9,
+      countInStock: 20,
+      description: "Guru's shirt",
+    },
+    {
+      name: "Green Shirt",
+      slug: "green-shit",
+      category: "Shits",
+      image: "/images/shirt3.jpg",
+      price: 700,
+      brand: "Nike",
+      rating: 4.5,
+      numReviews: 9,
+      countInStock: 20,
+      description: "Nice shirt",
+    },
+        {
+      name: "Blazer",
+      slug: "blazer",
+      category: "Shits",
+      image: "/images/blazer.jpg",
+      price: 700,
+      brand: "Nike",
+      rating: 4.5,
+      numReviews: 9,
+      countInStock: 20,
+      description: "Nice shirt",
+    },
+    
+  ],
+};
+
+export default data;
