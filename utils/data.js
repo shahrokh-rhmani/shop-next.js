@@ -2,8 +2,8 @@ const data = {
   products: [
     {
       name: "Slim Shirt",
-      slug: "slim-shit",
-      category: "Shits",
+      slug: "slim-shirt",
+      category: "Shirts",
       image: "/images/shirt1.jpg",
       price: 700,
       brand: "Nike",
@@ -14,8 +14,8 @@ const data = {
     },
     {
       name: "Free Shirt",
-      slug: "free-shit",
-      category: "Shits",
+      slug: "free-shirt",
+      category: "Shirts",
       image: "/images/shirt2.jpg",
       price: 700,
       brand: "Nike",
@@ -26,8 +26,8 @@ const data = {
     },
     {
       name: "Green Shirt",
-      slug: "green-shit",
-      category: "Shits",
+      slug: "green-shirt",
+      category: "Shirts",
       image: "/images/shirt3.jpg",
       price: 700,
       brand: "Nike",
@@ -36,10 +36,10 @@ const data = {
       countInStock: 20,
       description: "Nice shirt",
     },
-        {
+    {
       name: "Blazer",
       slug: "blazer",
-      category: "Shits",
+      category: "Shirts",
       image: "/images/blazer.jpg",
       price: 700,
       brand: "Nike",
@@ -48,7 +48,6 @@ const data = {
       countInStock: 20,
       description: "Nice shirt",
     },
-    
   ],
 };
 
