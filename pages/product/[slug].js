@@ -1,28 +1,38 @@
 import Layout from "@/components/Layout";
 import data from "@/utils/data";
+import { Store } from "@/utils/Store";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useContext } from "react";
 
 export default function ProductDetail() {
+  const { state, dispatch } = useContext(Store);
+
   const { query } = useRouter();
   const { slug } = query;
   const product = data.products.find((item) => item.slug === slug);
-  
   if (!product) {
-    return (
-      <Layout title="Product Not Found">
-        <div className="py-2">
-          <Link href="/">back to products</Link>
-        </div>
-        <div className="text-center py-10">
-          <div className="text-xl font-bold">Product Not Found</div>
-        </div>
-      </Layout>
-    );
+    return <div>Product Not Found</div>;
   }
-  
+
+  const addToCartHandler = () => {
+    const existItem = state.cart.cartItems.find(
+      (item) => item.slug === product.slug
+    );
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+
+    if (product.countInStock < quantity) {
+      alert("Sorry Product is out of stock");
+      return;
+    }
+
+    dispatch({
+      type: "CART_ADD_ITEM",
+      payload: { ...product, quantity: quantity },
+    });
+  };
+
   return (
     <div>
       <Layout title={product.name}>
@@ -36,13 +46,12 @@ export default function ProductDetail() {
               alt={product.name}
               width={640}
               height={640}
-              layout="responsive"
             ></Image>
           </div>
           <div>
-            <ul className="space-y-2">
+            <ul>
               <li>
-                <h1 className="text-lg font-bold">{product.name}</h1>
+                <h1 className="text-lg">{product.name}</h1>
               </li>
               <li>Category: {product.category}</li>
               <li>Brand: {product.brand}</li>
@@ -54,7 +63,7 @@ export default function ProductDetail() {
           </div>
           <div>
             <div className="card p-5">
-              <div className="mb-2 flex justify-between">
+              <div className="mb-2 flex  justify-between">
                 <div>Price</div>
                 <div>{product.price} ₹</div>
               </div>
@@ -64,7 +73,12 @@ export default function ProductDetail() {
                   {product.countInStock > 0 ? "In Stock" : "Unavailable"}
                 </div>
               </div>
-              <button className="primary-button w-full">Add to cart</button>
+              <button
+                className="primary-button w-full"
+                onClick={addToCartHandler}
+              >
+                Add to cart
+              </button>
             </div>
           </div>
         </div>
