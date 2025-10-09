@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+ import Layout from "@/components/Layout";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import { Store } from "@/utils/Store";
 import Link from "next/link";
@@ -103,7 +103,7 @@ function CartScreen() {
               </li>
               <li>
                 <button
-                  onClick={() => router.push("/shipping")}
+                  onClick={() => router.push("login?redirect=/shipping")}
                   className="primary-button w-full"
                 >
                   Check Out
